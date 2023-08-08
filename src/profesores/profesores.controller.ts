@@ -1,4 +1,4 @@
-import {Get, Post, Delete, Patch, Body, Controller, Param, ParseIntPipe} from '@nestjs/common';
+import {Get, Post, Delete, Body, Controller, Param, ParseIntPipe, Put} from '@nestjs/common';
 import { ProfesoresService } from './profesores.service';
 import { Profesor } from './profesor.entity';
 import { CreateProfesorDto } from './dto/create-profesor.dto';
@@ -28,7 +28,7 @@ export class ProfesoresController {
     return this.profesoresService.deleteProfesor(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   updateProfesor(
     @Param('id', ParseIntPipe) id: number,
     @Body()
