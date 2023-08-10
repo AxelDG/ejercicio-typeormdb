@@ -4,17 +4,14 @@ import { Entity, Column, PrimaryGeneratedColumn} from "typeorm"
 export class Profesor{
 
     @PrimaryGeneratedColumn()
-    id: number;
+    public id: number;
 
     @Column()
-    name: string;
+    public teacherName: string;
 
     @Column()
-    lastname: string;
+    public lastname: string;
 
     @Column()
-    age: number;
-
-    @Column()
-    schoolgrade: number;
+    public schoolGrade: number;
 }

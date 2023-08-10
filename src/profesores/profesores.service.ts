@@ -15,7 +15,7 @@ export class ProfesoresService {
       async createProfesor(profesor: CreateProfesorDto) {
         const profesorFound = await this.profesorRepository.findOne({
           where: {
-            name: profesor.name,
+            teacherName: profesor.teacherName,
           },
         });
     

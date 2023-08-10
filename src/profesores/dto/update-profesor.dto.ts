@@ -1,6 +1,5 @@
 export class UpdateProfesorDto {
-    name?: string 
+    teacherName?: string 
     lastname?: string
-    age?: number
-    schoolgrade?: number
+    schoolGrade?: number
 }

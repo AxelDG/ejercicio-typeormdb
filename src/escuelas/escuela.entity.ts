@@ -1,23 +1,31 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Ciudad } from "src/ciudades/ciudad.entity";
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from "typeorm"
 
 @Entity('escuelas')
-export class Escuela{
+export class Escuela {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    public id: number;
 
     @Column()
-    name: string;
+    public school: string;
 
     @Column()
-    adress: string;
+    public adress: string;
 
     @Column()
-    town: string;
+    public town: string;
 
-    @Column ()
-    province: string
+    @Column()
+    public province: string;
 
-    @Column ({unique: true})
-    postalcode: number
+    @Column()
+    public postalcode: number;
+
+    @Column()
+    public cityId: number;
+
+    @ManyToOne(() => Ciudad, ciudad => ciudad.escuelas)
+    @JoinColumn({ name: "cityId" })
+    public ciudades: Ciudad;
 }

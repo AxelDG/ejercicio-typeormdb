@@ -1,17 +1,21 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Escuela } from "src/escuelas/escuela.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm"
 
 @Entity('ciudades')
-export class Ciudad{
+export class Ciudad {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    public id: number;
 
     @Column()
-    province: string;
+    public province: string;
 
-    @Column ()
-    name: string
+    @Column()
+    public city: string;
 
-    @Column ({unique: true})
-    postalcode: number
+    @Column()
+    public postalcode: number;
+
+    @OneToMany(() => Escuela, escuela => escuela.ciudades)
+    public escuelas: Escuela[];
 }
