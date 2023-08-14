@@ -11,8 +11,6 @@ export class EscuelasService {
   constructor(
     @InjectRepository(Escuela)
     private escuelaRepository: Repository<Escuela>,
-    /*@InjectRepository(Ciudad)
-    private ciudadRepository: Repository<Ciudad>,*/
   ) {}
 
   async createEscuela(escuela: CreateEscuelaDto) {
@@ -32,7 +30,7 @@ export class EscuelasService {
 
   getEscuelas() {
     return this.escuelaRepository.find({
-      relations: ['estudiantes'],
+      relations: ['grados'],
     });
   }
 
@@ -41,7 +39,7 @@ export class EscuelasService {
       where: {
         id,
       },
-      relations: ['estudiantes'],
+      relations: ['grados'],
     });
 
     if (!escuelaFound) {

@@ -21,7 +21,7 @@ export class GradosService {
     })
 
     if (gradoFound) {
-      return new HttpException('Grade already exists', HttpStatus.CONFLICT)
+      return new HttpException('Class already exists', HttpStatus.CONFLICT)
     }
 
     const newGrado = this.gradoRepository.create(grado)
@@ -30,7 +30,7 @@ export class GradosService {
 
   getGrados() {
     return this.gradoRepository.find({
-      relations: ['escuelas', 'estudiantes'],
+      relations: ['escuelas', 'estudiantes', 'profesores'],
     });
   }
 
@@ -39,11 +39,11 @@ export class GradosService {
       where: {
         id,
       },
-      relations: ['escuelas', 'estudiantes'],
+      relations: ['escuelas', 'estudiantes', 'profesores'],
     });
 
     if (!gradoFound) {
-      return new HttpException('Grade not found', HttpStatus.NOT_FOUND);
+      return new HttpException('Class not found', HttpStatus.NOT_FOUND);
     }
 
     return gradoFound;
@@ -57,7 +57,7 @@ export class GradosService {
     });
 
     if (!gradoFound) {
-      return new HttpException('Grade not found', HttpStatus.NOT_FOUND);
+      return new HttpException('Class not found', HttpStatus.NOT_FOUND);
     }
 
     return this.gradoRepository.remove(gradoFound);
@@ -71,7 +71,7 @@ export class GradosService {
     });
 
     if (!gradoFound) {
-      return new HttpException('Grade not found', HttpStatus.NOT_FOUND);
+      return new HttpException('Class not found', HttpStatus.NOT_FOUND);
     }
 
     const updateGrado = Object.assign(gradoFound, clase);

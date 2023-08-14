@@ -28,7 +28,7 @@ export class ProfesoresService {
     
       getProfesores() {
         return this.profesorRepository.find({
-          relations: ['escuelas', 'estudiantes', 'clases'],
+          relations: ['grados'],
         });
       }
     
@@ -37,7 +37,7 @@ export class ProfesoresService {
           where: {
             id,
           },
-          relations: ['escuelas', 'estudiantes', 'clases'],
+          relations: ['grados'],
         });
     
         if (!profesorFound) {

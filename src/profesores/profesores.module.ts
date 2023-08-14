@@ -4,10 +4,10 @@ import { ProfesoresService } from './profesores.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Profesor } from './profesor.entity';
 import { Estudiante } from 'src/estudiantes/estudiante.entity';
-import { Escuela } from 'src/escuelas/escuela.entity';
+import { Grado } from 'src/grados/grado.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Profesor, Estudiante, Escuela])],
+  imports: [TypeOrmModule.forFeature([Profesor, Estudiante, Grado])],
   controllers: [ProfesoresController],
   providers: [ProfesoresService]
 })

@@ -13,7 +13,7 @@ export class Ciudad {
     @Column()
     public city: string;
 
-    @Column()
+    @Column({ unique: true })
     public postalcode: number;
 
     @OneToMany(() => Escuela, escuela => escuela.ciudades)
