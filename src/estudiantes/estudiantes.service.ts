@@ -27,7 +27,9 @@ export class EstudiantesService {
   }
 
   getEstudiantes() {
-    return this.estudianteRepository.find();
+    return this.estudianteRepository.find({
+      relations: ['escuelas', 'profesores'],
+    });
   }
 
   async getEstudiante(id: number) {
@@ -35,6 +37,7 @@ export class EstudiantesService {
       where: {
         id,
       },
+      relations: ['escuelas', 'profesores'],
     });
 
     if (!estudianteFound) {
@@ -53,7 +56,7 @@ export class EstudiantesService {
     if (!estudianteFound) {
       return new HttpException('Student not found', HttpStatus.NOT_FOUND);
     }
-    return this.estudianteRepository.delete(estudianteFound);
+    return this.estudianteRepository.delete(estudianteFound.id);
   }
 
   async updateEstudiante(id: number, estudiante: UpdateEstudianteDto) {

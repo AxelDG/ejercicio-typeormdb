@@ -32,7 +32,7 @@ export class EscuelasService {
 
   getEscuelas() {
     return this.escuelaRepository.find({
-      relations: ['ciudades'],
+      relations: ['estudiantes'],
     });
   }
 
@@ -41,7 +41,7 @@ export class EscuelasService {
       where: {
         id,
       },
-      relations: ['ciudades'],
+      relations: ['estudiantes'],
     });
 
     if (!escuelaFound) {

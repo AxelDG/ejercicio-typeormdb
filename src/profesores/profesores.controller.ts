@@ -6,7 +6,7 @@ import { UpdateProfesorDto } from './dto/update-profesor.dto';
 
 @Controller('profesores')
 export class ProfesoresController {
-    constructor(private profesoresService: ProfesoresService) {}
+    constructor(private readonly profesoresService: ProfesoresService) {}
 
   @Get()
   getProfesores(): Promise<Profesor[]> {

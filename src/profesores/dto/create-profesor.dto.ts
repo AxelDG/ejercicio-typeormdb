@@ -1,5 +1,5 @@
 export class CreateProfesorDto {
     teacherName: string 
-    lastname: string
+    teacherLastname: string
     schoolGrade: number
 }

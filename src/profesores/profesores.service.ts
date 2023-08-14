@@ -9,7 +9,7 @@ import { Profesor } from './profesor.entity';
 export class ProfesoresService {
     constructor(
         @InjectRepository(Profesor)
-        private profesorRepository: Repository<Profesor>,
+        private profesorRepository: Repository<Profesor>,                                                                             
       ) {}
     
       async createProfesor(profesor: CreateProfesorDto) {
@@ -27,7 +27,9 @@ export class ProfesoresService {
       }
     
       getProfesores() {
-        return this.profesorRepository.find();
+        return this.profesorRepository.find({
+          relations: ['escuelas', 'estudiantes', 'clases'],
+        });
       }
     
       async getProfesor(id: number) {
@@ -35,6 +37,7 @@ export class ProfesoresService {
           where: {
             id,
           },
+          relations: ['escuelas', 'estudiantes', 'clases'],
         });
     
         if (!profesorFound) {

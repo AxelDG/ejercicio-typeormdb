@@ -4,15 +4,12 @@ import { CreateCiudadDto } from './dto/create-ciudad.dto';
 import { UpdateCiudadDto } from './dto/update-ciudad.dto';
 import { Ciudad } from './ciudad.entity';
 import { Repository } from 'typeorm';
-import { Escuela } from 'src/escuelas/escuela.entity';
 
 @Injectable()
 export class CiudadesService {
     constructor(
         @InjectRepository(Ciudad)
         private ciudadRepository: Repository<Ciudad>,
-        @InjectRepository(Escuela) 
-        private escuelaRepository: Repository<Escuela>
     ) {}
     
     async createCiudad(ciudad: CreateCiudadDto) {

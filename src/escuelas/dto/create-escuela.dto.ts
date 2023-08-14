@@ -3,5 +3,4 @@ export class CreateEscuelaDto {
     adress: string // "p peron y 9 julio"
     town: string // "coronel dorrego"
     province: string // "buenos aires"
-    postalcode: number // 8150
 }

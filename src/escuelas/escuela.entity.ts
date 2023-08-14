@@ -1,5 +1,6 @@
 import { Ciudad } from "src/ciudades/ciudad.entity";
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from "typeorm"
+import { Estudiante } from "src/estudiantes/estudiante.entity";
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, OneToMany } from "typeorm"
 
 @Entity('escuelas')
 export class Escuela {
@@ -20,12 +21,17 @@ export class Escuela {
     public province: string;
 
     @Column()
-    public postalcode: number;
+    public schoolId: number;
 
     @Column()
     public cityId: number;
 
+    
+
     @ManyToOne(() => Ciudad, ciudad => ciudad.escuelas)
     @JoinColumn({ name: "cityId" })
     public ciudades: Ciudad;
+
+    @OneToMany(() => Estudiante, estudiante => estudiante.escuelas)
+    public estudiantes: Estudiante[];
 }
