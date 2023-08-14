@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EstudiantesModule } from './estudiantes/estudiantes.module';
 import { ProfesoresModule } from './profesores/profesores.module';
 import { CiudadesModule } from './ciudades/ciudades.module';
-import { ClasesModule } from './grados/grados.module';
+import { ClasesModule } from './clases/clases.module';
 import { EscuelasModule } from './escuelas/escuelas.module';
 
 @Module({

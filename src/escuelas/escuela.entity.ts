@@ -1,5 +1,5 @@
 import { Ciudad } from "src/ciudades/ciudad.entity";
-import { Grado } from "src/grados/grado.entity";
+import { Clase } from "src/clases/clase.entity";
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, OneToMany } from "typeorm"
 
 @Entity('escuelas')
@@ -27,6 +27,6 @@ export class Escuela {
     @JoinColumn({ name: "cityId" })
     public ciudades: Ciudad;
 
-    @OneToMany(() => Grado, grado => grado.escuelas)
-    public grados: Grado[];
+    @OneToMany(() => Clase, clase => clase.escuelas)
+    public clases: Clase[];
 }

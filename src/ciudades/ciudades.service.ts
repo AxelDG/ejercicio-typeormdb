@@ -75,8 +75,5 @@ export class CiudadesService {
 
         const updateCiudad = Object.assign(ciudadFound, ciudad);
         return this.ciudadRepository.save(updateCiudad);
-
-        /*Object.assign(ciudadFound, ciudad);
-        return this.ciudadRepository.save(ciudadFound);*/
     }
 }

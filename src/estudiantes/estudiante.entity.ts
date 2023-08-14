@@ -1,4 +1,4 @@
-import { Grado } from "src/grados/grado.entity";
+import { Clase } from "src/clases/clase.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from "typeorm"
 
 
@@ -20,7 +20,7 @@ export class Estudiante {
     @Column()
     public classId: number;
 
-    @ManyToMany(() => Grado, grado => grado.estudiantes)
-    public grados: Grado[];
+    @ManyToMany(() => Clase, clase => clase.estudiantes)
+    public clases: Clase[];
 
 }

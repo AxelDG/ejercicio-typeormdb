@@ -28,7 +28,7 @@ export class EstudiantesService {
 
   getEstudiantes() {
     return this.estudianteRepository.find({
-      relations: ['grados'],
+      relations: ['clases'],
     });
   }
 
@@ -37,7 +37,7 @@ export class EstudiantesService {
       where: {
         id,
       },
-      relations: ['grados'],
+      relations: ['clases'],
     });
 
     if (!estudianteFound) {

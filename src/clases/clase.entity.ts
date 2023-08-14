@@ -3,8 +3,8 @@ import { Estudiante } from "src/estudiantes/estudiante.entity";
 import { Profesor } from "src/profesores/profesor.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinColumn, ManyToOne, JoinTable } from "typeorm"
 
-@Entity('grados')
-export class Grado {
+@Entity('clases')
+export class Clase {
 
     @PrimaryGeneratedColumn()
     public id: number;
@@ -18,15 +18,15 @@ export class Grado {
     @Column()
     public teacherId: number;
 
-    @ManyToOne(() => Escuela, escuela => escuela.grados)
+    @ManyToOne(() => Escuela, escuela => escuela.clases)
     @JoinColumn({ name: "schoolId" })
     public escuelas: Escuela;
 
-    @ManyToMany(() => Estudiante, estudiante => estudiante.grados)
+    @ManyToMany(() => Estudiante, estudiante => estudiante.clases)
     @JoinTable()
     public estudiantes: Estudiante[];
 
-    @ManyToOne(() => Profesor, profesor => profesor.grados)
+    @ManyToOne(() => Profesor, profesor => profesor.clases)
     @JoinColumn({ name: "teacherId"})
     public profesores: Profesor[];
 }

@@ -30,7 +30,7 @@ export class EscuelasService {
 
   getEscuelas() {
     return this.escuelaRepository.find({
-      relations: ['grados'],
+      relations: ['clases'],
     });
   }
 
@@ -39,7 +39,7 @@ export class EscuelasService {
       where: {
         id,
       },
-      relations: ['grados'],
+      relations: ['clases'],
     });
 
     if (!escuelaFound) {
@@ -76,9 +76,6 @@ export class EscuelasService {
 
     const updateEscuela = Object.assign(escuelaFound, escuela);
     return this.escuelaRepository.save(updateEscuela);
-
-    /*Object.assign(escuelaFound, escuela);
-      return this.ciudadRepository.save(escuelaFound);*/
   }
   
 }
